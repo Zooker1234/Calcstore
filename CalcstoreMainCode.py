@@ -55,14 +55,15 @@ def SolveEquation():
 while True:
     cancel = False
     
-    
-    whatToDo = simpledialog.askstring("CalcStore", """What do you want to do?
+    while cancel == False:
+        whatToDo = simpledialog.askstring("CalcStore", """What do you want to do?
     To look at an equation, type "look."
     To add a new equation, type "add."
     To edit an equation, type "edit."
     To solve an equation, type "solve."
     """).lower()
-    while cancel == False:
+    """)
+        
         goodEquation = False
         if whatToDo == "add" or whatToDo == "\"add\"":
             equation = simpledialog.askstring("Add Equation", """Please type the equation you want to add.
