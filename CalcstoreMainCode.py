@@ -23,16 +23,16 @@ def checkEquation(e):
         if checkStrForNonInt(e[i]) or checkStrForSigns(e[i]):
             i += 1
         elif e[i] == '~':
-            if checkForValidGraveSign(e, i) == 0:
+            if checkForValidTildeSign(e, i) == 0:
                 return False
             else:
-                i += 2 + checkForValidGraveSign(e, i)
+                i += 2 + checkForValidTildeSign(e, i)
         else:
             return False
     return True
-#if there's a grave, checks for if its a valid sign. n is place of grave in str e
+#if there's a tilde, checks for if its a valid sign. n is place of tilde in str e
 #0 == invalid, any other value == valid
-def checkForValidGraveSign(e, n):
+def checkForValidTildeSign(e, n):
     newN = n + 1
     lenOfSign = 0
     while True:
