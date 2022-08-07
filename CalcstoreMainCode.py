@@ -63,15 +63,13 @@ while True:
         case None:
             quit()
         case "add":
-            equation = simpledialog.askstring("Add Equation", """Please type the equation you want to add.
-    If you changed your mind, type "cancel".""")
+            equation = simpledialog.askstring("Add Equation", "Please type the equation you want to add.")
             while True:
+                if equation == None:
+                    break
                 if checkEquation(equation):
                     saveEquation(equation)
                     break
-                elif equation == "cancel":
-                    quit()
                 else:
                     equation = simpledialog.askstring("Add Equation", """That is not a valid equation!
-    Please type the equation you want to add.
-    If you changed your mind, type "cancel".""")
+    Please type the equation you want to add.""")
