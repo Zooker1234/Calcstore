@@ -63,7 +63,7 @@ while True:
     cancel = False
     
     
-    whatToDo = simpledialog.askstring("choose", """what do you want to do?
+    whatToDo = simpledialog.askstring("CalcStore", """What do you want to do?
     To look at an equation, type "look."
     To add a new equation, type "add."
     To edit an equation, type "edit."
@@ -72,8 +72,8 @@ while True:
     while cancel == False:
         goodEquation = False
         if whatToDo == "add" or whatToDo == "\"add\"":
-            equation = simpledialog.askstring("equation", "please type the equation \
-you want to add.\nIf you changed your mind, type \"cancel\".").lower()
+            equation = simpledialog.askstring("Add Equation", """Please type the equation you want to add.
+If you changed your mind, type "cancel".""").lower()
             while goodEquation == False:
                 if checkEquation(equation) == True:
                     saveEquation(equation)
