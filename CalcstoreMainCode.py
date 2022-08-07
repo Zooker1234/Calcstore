@@ -2,13 +2,6 @@ import math
 from tkinter import simpledialog, messagebox
 
 #returns if string full of only ints
-def checkStrForNonInt(s):
-    for i in range(0, len(s)):
-        if s[i] == "1" or s[i] == "2" or s[i] == "3" or s[i] == "4" or s[i] == "5" or s[i] == "6" or s[i] == "7" or s[i] == "8" or s[i] == "9" or s[i] == "0":
-            pass
-        else:
-            return False
-    return True
 def checkStrForSigns(s):
     for i in range(0, len(s)):
         if s[i] == "+" or s[i] == '-' or s[i] == '/' or s[i] == '*' or s[i] == '%' or s[i] == '~sqrt~':
@@ -20,7 +13,7 @@ def checkStrForSigns(s):
 def checkEquation(e):
     i = 0
     while i < len(e):
-        if checkStrForNonInt(e[i]) or checkStrForSigns(e[i]):
+        if e[i].isdigit() or checkStrForSigns(e[i]):
             i += 1
         elif e[i] == '~':
             if checkForValidTildeSign(e, i) == 0:
