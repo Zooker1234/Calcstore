@@ -53,28 +53,25 @@ def SolveEquation():
 
 
 while True:
-    cancel = False
-    
-    while cancel == False:
-        whatToDo = simpledialog.askstring("CalcStore", """What do you want to do?
+    whatToDo = simpledialog.askstring("CalcStore", """What do you want to do?
     To look at an equation, type "look."
     To add a new equation, type "add."
     To edit an equation, type "edit."
     To solve an equation, type "solve."
-    """).lower()
     """)
-        
-        goodEquation = False
-        if whatToDo == "add" or whatToDo == "\"add\"":
+    match whatToDo:
+        case None:
+            quit()
+        case "add":
             equation = simpledialog.askstring("Add Equation", """Please type the equation you want to add.
-If you changed your mind, type "cancel".""").lower()
-            while goodEquation == False:
-                if checkEquation(equation) == True:
+    If you changed your mind, type "cancel".""")
+            while True:
+                if checkEquation(equation):
                     saveEquation(equation)
-                    goodEquation = True
-                elif equation == "cancel" or equation == "\"cancel\"":
-                    cancel = True
+                    break
+                elif equation == "cancel":
+                    quit()
                 else:
-                    equation = simpledialog.askstring("equation","That is not a valid equation!\nplease type the equation you want to add.\n If you changed your mind, type \"cancel\".").lower()
-                    
-                
+                    equation = simpledialog.askstring("Add Equation", """That is not a valid equation!
+    Please type the equation you want to add.
+    If you changed your mind, type "cancel".""")
