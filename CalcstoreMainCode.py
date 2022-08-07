@@ -63,10 +63,12 @@ while True:
     cancel = False
     
     
-    whatToDo = simpledialog.askstring("choose", "what do you want to do?\
-    \nTo look at an equation, type \"look.\"\nTo add a new equation, type \
-    \"add.\"\nTo edit an equation, type \"edit.\"\nTo solve an equation, \
-    type \"solve.\"").lower()
+    whatToDo = simpledialog.askstring("choose", """what do you want to do?
+    To look at an equation, type "look."
+    To add a new equation, type "add."
+    To edit an equation, type "edit."
+    To solve an equation, type "solve."
+    """).lower()
     while cancel == False:
         goodEquation = False
         if whatToDo == "add" or whatToDo == "\"add\"":
