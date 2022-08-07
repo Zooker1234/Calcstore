@@ -59,11 +59,13 @@ while True:
     To edit an equation, type "edit."
     To solve an equation, type "solve."
     """)
+    
     match whatToDo:
         case None:
             quit()
         case "add":
             equation = simpledialog.askstring("Add Equation", "Please type the equation you want to add.")
+            
             while True:
                 if equation == None:
                     break
