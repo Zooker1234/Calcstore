@@ -63,7 +63,7 @@ while True:
     cancel = False
     
     
-    whatToDo = simpledialog.askstring("chose", "what do you want to do?\
+    whatToDo = simpledialog.askstring("choose", "what do you want to do?\
     \nTo look at an equation, type \"look.\"\nTo add a new equation, type \
     \"add.\"\nTo edit an equation, type \"edit.\"\nTo solve an equation, \
     type \"solve.\"").lower()
