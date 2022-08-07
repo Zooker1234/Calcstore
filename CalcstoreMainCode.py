@@ -51,7 +51,7 @@ def checkForValidTildeSign(e, n):
             
 #saves an equation to the list
 def saveEquation(e):
-    with open('Equations.txt', 'a') as file:
+    with open('equations.txt', 'a') as file:
                 file.write(e + '\n')
 def getEquation():
     pass
