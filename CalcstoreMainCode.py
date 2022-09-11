@@ -9,38 +9,45 @@ def checkStrForSigns(s):
         else:
             return False
     return True
-#returns if equation is valid
+#returns True if equation is valid
 def checkEquation(e):
     i = 0
     while i < len(e):
         if e[i].isdigit() or checkStrForSigns(e[i]):
             i += 1
-        elif e[i] == '~':
-            if checkForValidTildeSign(e, i) == 0:
+        elif e[i] == 's' or 'c':
+            if checkForValidLetterSign(e, i) == 0:
                 return False
             else:
-                i += 2 + checkForValidTildeSign(e, i)
+                i += 2 + checkForValidLetterSign(e, i)
         else:
             return False
     return True
-#if there's a tilde, checks for if its a valid sign. n is place of tilde in str e
+#if there's a lowercase letter, checks for if its a valid sign. n is place of letter in str e
 #0 == invalid, any other value == valid
-def checkForValidTildeSign(e, n):
+def checkForValidLetterSign(e, n):
+    global equation
+    equation = e
     newN = n + 1
     lenOfSign = 0
     while True:
-        if e[newN+1] == '~':
+        if newN == len(e):
+            e += ')'
+            return checkForValidLetterSign(e, n)
+        elif e[newN] == ')':
             word = e[n:newN+1]
-            if word == '~sqrt~':
-                return lenOfSign
+            #variable for expression between parenthases
+            between = e[n+5:newN]
+            if checkEquation(between):
+                if word == 'sqrt(' + between + ')' or 'sin(' + between + ')' or 'cos(' + between + ')':
+                    return lenOfSign
+                else:
+                    return 0
             else:
                 return 0
-        elif newN+1 == len(e):
-            return 0
         else:
             lenOfSign += 1
             newN += 1
-        
             
 #saves an equation to the list
 def saveEquation(e):
